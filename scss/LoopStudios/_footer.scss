@@ -1,0 +1,121 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+    padding: 5.6rem 0;
+    height: 47rem;
+
+    @include m.desktop { 
+        height: 16rem;
+        padding: 4.4rem 0 3.3rem 0;
+    }
+
+    &__contenido,
+    &__uno,
+    &__dos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__uno{
+        gap: 3.2rem;
+
+        @include m.desktop { 
+            gap: 1.4rem;
+        }
+    }
+
+    &__logo {
+        width: 14.4rem;
+        height: 2.4rem;
+    }
+
+    &__dos {
+        gap: 1.6rem;
+
+        @include m.desktop { 
+            gap: 1.4rem;   
+        }
+    }
+
+    &__contenido {
+        gap: 4.8rem;
+    }
+
+    &__contenido {
+        gap: 4.8rem;
+
+        @include m.desktop { 
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__uno {
+        @include m.desktop { 
+            align-items: flex-start;   
+        }
+    }
+
+    &__dos {
+        @include m.desktop { 
+            align-items: flex-end;            
+        }
+    }
+
+    &__r-sociales {
+        display: flex;
+        align-items: flex-end;
+        gap: 2rem;
+    }
+
+    &__icono-c {
+        @include m.linea;
+    }
+}
+
+.nav-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+
+    @include m.desktop { 
+        flex-direction: row;
+    }
+
+    &__enlace {
+        color: v.$white;
+        @include m.linea;
+    }
+}
+
+.front {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: v.$white;
+
+    a {
+        color: v.$white;
+        font-style: italic;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -.1rem;
+            left: 0;
+            width: 100%;
+            height: .1rem;
+            background-color: v.$white;
+            transform: scaleX(1);
+            transition: all .4s;
+        }
+
+        &:hover::before {
+            transform: scaleX(0);
+        }
+    }
+}

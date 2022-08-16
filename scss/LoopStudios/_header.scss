@@ -1,0 +1,120 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header {
+    padding-top: 4rem;
+    height: 100%;
+
+    @include m.desktop { 
+        padding-top: 6.4rem;
+    }
+
+    &__contenido {
+        height: 100%;
+        position: relative;
+    }
+
+    &__barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        position: relative;
+        z-index: 101;
+
+        @include m.tablet { 
+            position: unset;
+        }
+    }
+
+    &__btn-toggle {
+        z-index: 1001;
+        background-image: url(../img//icon-hamburger.svg);
+        background-size: 2rem;
+        background-repeat: no-repeat;
+        width: 2rem;
+        height: 2rem;
+
+
+        &[aria-expanded="true"] {
+            background-image: url(../img/icon-close.svg);
+        }
+
+        @include m.tablet { 
+            display: none;
+        }
+    }
+
+    &__heading-c {
+        border: 2px solid v.$white;
+        padding: 2.6rem 2.4rem 2.4rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include m.tablet { 
+            padding: 4rem;
+            max-width: 40rem;
+        }
+
+        @include m.desktop { 
+            max-width: 65rem;
+        }
+    }
+
+}
+
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    padding: 8rem 0 8rem 3rem;
+    background-color: v.$black;
+    transform: translateX(100%);
+
+    transition-property: transform;
+    transition-duration: .3s;
+
+    &[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    @include m.tablet { 
+        flex-direction: row;
+        position: unset;
+        padding: 0;
+        background-color: transparent;
+        gap: 3.3rem;
+        transform: translateX(0%);
+    }
+
+    &__link {
+        // display: inline-block; en el caso que fuera un parrafo para que tome su ancho de acuerdo al texto
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+        position: relative;
+        color: v.$white;
+        font-family: v.$fontSecundary;
+        font-size: 2.2rem;
+    
+        @include m.tablet { 
+            text-transform: capitalize;
+            letter-spacing: 0px;
+            font-family: v.$fontPrimary;
+            font-size: 1.5rem;
+            @include m.linea;
+        }
+                
+    }
+}

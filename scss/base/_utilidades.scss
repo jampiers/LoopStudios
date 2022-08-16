@@ -1,0 +1,23 @@
+@use 'variables' as v; 
+@use 'mixins' as m;
+
+.bg-header {
+    background-image: url(../img/image-hero-m.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65rem;
+    background-position: center;
+
+    @include m.tablet { 
+        background-image: linear-gradient(to right, rgb( 0 0 0 / 0.35) 0%, rgb( 0 0 0 / 0.35)), url(../img/image-hero-d.jpg);
+        height: 45rem;
+    }
+
+    @include m.desktop { 
+        height: 65rem;
+    }
+}
+
+.bg-footer {
+    background-color: v.$black;
+}

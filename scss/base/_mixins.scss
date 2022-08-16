@@ -1,0 +1,100 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+  
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktop-xl {
+    @media (min-width: v.$desktop-xl) {
+        @content;
+    }
+}
+
+
+@mixin boton($color, $texto) {
+    display: inline-block;
+    width: 15.7rem;
+    height: 4rem;
+    margin-top: 3.4rem;
+    text-transform: uppercase;
+    background-color: $color;
+    font-size: 1.5rem;
+    padding: 1.3rem 3.5rem;
+    font-weight: 400;
+    text-align: center;
+    color: $texto;
+    text-decoration: none;
+    transition: background-color .3s ease;
+    border: none;
+    border: 1px solid v.$black;
+    letter-spacing: .5rem;
+    line-height: 1.4rem;
+
+    &:hover {
+        cursor: pointer;
+        color: $color;
+        background-color: $texto;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin creacionesImagen($urlM, $urlD) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.601863) 0%, transparent 100% ), url($urlM);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12rem;
+    width: 100%;
+
+    @include desktop {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.601863) 0%, transparent 100% ), url($urlD);
+        background-position: right;
+        height: 45rem;
+
+    }
+}
+
+@mixin linea {
+    position: relative;
+
+    &::after {
+        @include tablet { 
+            content: '';
+            position: absolute;
+            width: 2.4rem;
+            height: .2rem;
+            bottom: -.8rem;
+            left: 50%;
+            background-color: v.$white;
+            transform: scaleX(0) translateX(-50%); /* desaparecemos la linea */ 
+            transform-origin: left;/* nuestra transiccion sera llevada de escala 0 a 1, vamos a tener que saber desde donde se realizara esa transformacion */
+            transition: transform .4s;   
+        }
+    }
+
+    &:hover::after {
+        @include tablet { 
+            left: 50%;
+            transform: scaleX(1) translateX(-50%);  
+        }
+    }
+}

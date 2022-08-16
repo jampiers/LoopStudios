@@ -1,0 +1,107 @@
+@use 'variables' as v; 
+@use 'mixins' as m; 
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+body {
+    font-family: v.$fontPrimary;
+    font-size: 1.5rem;
+    color: v.$verydarkGray;
+    line-height: 2.5rem;
+
+    &[data-noScroll="true"] {
+        overflow: hidden;
+
+        @include m.tablet { 
+            overflow-y: auto;
+        }
+    }
+}
+p {
+    margin: 0;
+    line-height: 1.7;
+}
+.contenedor {
+    max-width: 111rem;
+    margin: 0 auto;
+    padding: 0 2.4rem;
+
+
+    @include m.tablet { 
+        padding: 0 3.9rem;   
+    }
+
+    @include m.desktop-xl { 
+        padding: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-family: v.$fontSecundary;
+    color: v.$black;
+    font-weight: 300;
+    text-transform: uppercase;
+
+}
+h1 {
+    font-size: 4rem;
+    color: v.$white;
+    font-weight: 300;  
+    margin: 0;
+    line-height: 3.8rem;
+
+    @include m.desktop { 
+        font-size: 7.2rem;
+        line-height: 7rem;
+    }
+}
+
+h2 {
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+
+    @include m.desktop { 
+        font-size: 4.8rem;
+        line-height: 4.8rem;   
+    }
+}
+
+h3 {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+
+    @include m.desktop { 
+        font-size: 3.2rem;
+        line-height: 3.2rem;   
+    }
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,101 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.nosotros {
+    margin-top: 9.6rem;
+
+    @include m.desktop { 
+        margin-top: 16rem;
+    }
+
+    &__contenido {
+        @include m.tablet { 
+            position: relative;
+        }
+    }
+
+    &__imagen-c {
+        overflow: hidden;
+
+        @include m.desktop { 
+            width: 60%;
+        }
+    }
+
+    &__imagen-m {
+        width: 100%;
+        height: auto;
+        transition-property: transform;
+        transition-duration: .3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @include m.tablet { 
+            width: 50rem;
+        }
+
+        @include m.desktop { 
+            display: none;
+        }
+    }
+
+    &__imagen-d {
+        display: none;
+        transition-property: transform;
+        transition-duration: .3s;
+
+        @include m.desktop { 
+            display: block;
+            width: 73.1rem;
+            height: 50rem;
+            object-fit: cover;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__info {
+        text-align: center;
+        margin-top: 4.8rem;
+        background-color: v.$white;
+        padding-inline: 2.4rem;
+
+        @include m.tablet { 
+            position: absolute;
+            margin: 0;
+            text-align: left;
+            bottom: -9rem;
+            right: 0;
+            width: 48rem;
+            padding: 0;
+            padding-top: 5.5rem;
+            padding-left: 3.5rem;
+        }
+
+        @include m.desktop { 
+            padding-top: 9.6rem;
+            padding-left: 9.6rem;
+            bottom: -2px;
+            right: 4rem;
+            width: 54.1rem;
+            height: 31.7rem;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 1.6rem;
+
+        @include m.tablet { 
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__texto {
+        color: v.$darkGray;
+    }
+
+}

@@ -1,0 +1,158 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.creaciones {
+    margin-block: 9.6rem;
+
+    @include m.tablet { 
+        margin: 18.4rem auto 9.6rem ;   
+    }
+
+    @include m.desktop { 
+        margin-block: 18.4rem; 
+    }
+
+    &__heading-c {
+        @include m.desktop { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8rem;
+        }
+
+    }
+
+    &__heading {
+        text-align: center;
+        margin-bottom: 4.8rem;
+
+        @include m.desktop { 
+            margin-bottom: 0;
+        }
+    }
+
+    &__contenido {
+        @include m.grid(1, 2.4rem);
+
+        @include m.tablet { 
+            @include m.grid(2, 3rem);
+        }
+
+        @include m.desktop { 
+            @include m.grid(4, 3rem);
+        }
+    }
+
+    &__enlace-c{ 
+        display: flex;
+        justify-content: center;
+        margin-top: 3.4rem;
+
+        @include m.desktop { 
+            display: none;
+        }
+    }
+
+    &__enlace {
+        @include m.boton(v.$white, v.$black);
+        width: auto;
+        margin: 0;
+
+        @include m.desktop { 
+            margin: 0;
+        }
+    }
+
+    &__enlace-d {
+        display: none;
+        @include m.desktop { 
+            display: inline-block;
+            @include m.boton(v.$white, v.$black);
+            margin: 0;   
+        }
+    }
+
+}
+
+.creacion {
+    position: relative;
+    overflow: hidden;
+
+        &::after {
+            content: '';
+            background-image: linear-gradient(to right, rgb( 255 255 255 / .75) 0%, rgb( 255 255 255 / .75) 100%);
+            position: absolute;
+            inset: 0;
+            transform: translateX(-100%);
+            transition-property: transform;
+            transition-duration: .5s;
+        }
+
+    &:hover::after {
+        transform: translateX(0);
+    }
+
+    &:hover h3 {
+        color: v.$black;
+    }
+
+    &:nth-child(1) &__imagen {
+        @include m.creacionesImagen('../img/image-deep-earth-m.jpg', '../img/image-deep-earth-d.jpg');
+    }
+
+    &:nth-child(2) &__imagen {
+        @include m.creacionesImagen('../img/image-night-arcade-m.jpg', '../img/image-night-arcade-d.jpg');
+
+    }
+
+    &:nth-child(3) &__imagen {
+        @include m.creacionesImagen('../img/image-soccer-team-m.jpg', '../img/image-soccer-team-d.jpg');
+
+    }
+
+    &:nth-child(4) &__imagen {
+        @include m.creacionesImagen('../img/image-grid-m.jpg', '../img/image-grid-d.jpg');
+
+    }
+
+    &:nth-child(5) &__imagen {
+        @include m.creacionesImagen('../img/image-from-above-m.jpg', '../img/image-from-above-d.jpg');
+
+    }
+
+    &:nth-child(6) &__imagen {
+        @include m.creacionesImagen('../img/image-pocket-borealis-m.jpg', '../img/image-pocket-borealis-d.jpg');
+
+    }
+
+    &:nth-child(7) &__imagen {
+        @include m.creacionesImagen('../img/image-curiosity-m.jpg', '../img/image-curiosity-d.jpg');
+
+    }
+
+    &:nth-child(8) &__imagen {
+        @include m.creacionesImagen('../img/image-fisheye-m.jpg', '../img/image-fisheye-d.jpg');
+
+    }
+
+
+    &__nombre {
+        color: v.$white;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin: 0;
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        width: 12.7rem;
+        z-index: 1;
+        transition-property: color;
+        transition-duration: .2s;
+
+        @include m.desktop { 
+            width: 16.9rem;
+            bottom: 3.2rem;
+            left: 4rem;
+        }
+    }
+}
